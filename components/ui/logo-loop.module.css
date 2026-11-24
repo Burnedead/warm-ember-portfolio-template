@@ -1,0 +1,126 @@
+.viewport {
+  width: 100%;
+  overflow: hidden;
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  border-block: 1px solid var(--border-color);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: logo-loop var(--logo-loop-duration) linear infinite;
+  animation-direction: var(--logo-loop-direction);
+  will-change: transform;
+}
+
+.pauseOnHover:hover .track {
+  animation-play-state: paused;
+}
+
+.group {
+  display: flex;
+  flex: 0 0 auto;
+  width: max-content;
+  min-width: 100vw;
+  align-items: center;
+  justify-content: space-around;
+  gap: var(--logo-loop-gap);
+  margin: 0;
+  padding: 1.75rem clamp(1.5rem, 4vw, 4rem);
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  width: clamp(4rem, 8vw, 5rem);
+  height: var(--logo-loop-height);
+  align-items: center;
+  justify-content: center;
+  transition: transform 220ms ease;
+}
+
+.icon {
+  width: var(--logo-loop-height);
+  height: var(--logo-loop-height);
+  color: currentColor;
+}
+
+.image {
+  object-fit: contain;
+}
+
+:global(:root[data-theme="dark"]) .image {
+  filter: brightness(0) invert(1);
+}
+
+.scaleOnHover .item:hover .logo {
+  transform: scale(1.08);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@keyframes logo-loop {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viewport {
+    overflow: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .track {
+    width: 100%;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .group {
+    width: 100%;
+    min-width: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .duplicate {
+    display: none;
+  }
+
+  .logo {
+    transition: none;
+  }
+}
