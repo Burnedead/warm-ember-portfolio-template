@@ -9,11 +9,10 @@ import { socialLinksData } from "@/lib/data/social-links";
 const navigation = [
   { label: "Home", href: "/#home" },
   { label: "About", href: "/about" },
-  { label: "Skills", href: "/#skills" },
+  { label: "Skills", href: "/skills" },
   { label: "Projects", href: "/projects" },
   { label: "Certificates", href: "/certificates" },
-  { label: "Experience", href: "/experience" },
-  { label: "Education", href: "/education" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Footer() {

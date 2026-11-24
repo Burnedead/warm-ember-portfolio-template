@@ -28,7 +28,17 @@ export interface SkillsData {
 export const skillsData: SkillsData = {
   introduction: "",
   categories: [
-    // Add an SVG icon component or a local SVG path, plus an optional brand color.
+    {
+      id: "languages",
+      name: "Programming Languages",
+      skills: [
+        {
+          id: "typescript",
+          name: "TypeScript",
+          logo: "/icons/technologies/typescript.svg",
+        },
+      ],
+    },
     {
       id: "frontend",
       name: "Frontend Development",
@@ -44,24 +54,15 @@ export const skillsData: SkillsData = {
           logo: "/icons/technologies/react.svg",
         },
         {
-          id: "typescript",
-          name: "TypeScript",
-          logo: "/icons/technologies/typescript.svg",
-        },
-        {
           id: "tailwind-css",
           name: "Tailwind CSS",
           logo: "/icons/technologies/tailwind-css.svg",
         },
       ],
     },
-    { id: "backend", name: "Backend Development", skills: [] },
-    { id: "database", name: "Database & Data", skills: [] },
-    { id: "design", name: "UI/UX & Design", skills: [] },
-    { id: "ecommerce", name: "E-commerce & CMS", skills: [] },
     {
-      id: "tools",
-      name: "Development Tools",
+      id: "ui-animation",
+      name: "UI, Styling & Animation",
       skills: [
         { id: "gsap", name: "GSAP", logo: "/icons/technologies/gsap.svg" },
         { id: "lenis", name: "Lenis", logo: "/icons/technologies/lenis.svg" },
@@ -74,3 +75,23 @@ export const skillsData: SkillsData = {
     },
   ],
 };
+
+const previewSkillIds = [
+  "nextjs",
+  "react",
+  "typescript",
+  "tailwind-css",
+  "gsap",
+  "lenis",
+  "lucide-react",
+] as const;
+
+export const previewSkills: Skill[] = skillsData.categories
+  .flatMap((category) => category.skills)
+  .filter(
+    (skill, index, allSkills) =>
+      allSkills.findIndex((candidate) => candidate.id === skill.id) === index &&
+      previewSkillIds.includes(
+        skill.id as (typeof previewSkillIds)[number],
+      ),
+  );

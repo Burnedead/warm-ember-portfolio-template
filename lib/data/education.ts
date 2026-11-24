@@ -28,4 +28,32 @@ export const education: Education[] = [
     achievements: ["DEMO ONLY: Example achievement"],
     credentialUrl: null,
   },
+  {
+    id: "demo-education",
+    institution: "DEMO ONLY: Example institution",
+    institutionWebsite: null,
+    degree: "DEMO ONLY: Example degree",
+    fieldOfStudy: "DEMO ONLY: Field of study",
+    startDate: "DEMO ONLY: Start date",
+    endDate: "DEMO ONLY: Graduation date",
+    currentlyStudying: false,
+    description:
+      "DEMO ONLY: Fictional education description. Replace with your own details.",
+    achievements: ["DEMO ONLY: Example achievement"],
+    credentialUrl: null,
+  },
+  {
+    id: "demo-education",
+    institution: "DEMO ONLY: Example institution",
+    institutionWebsite: null,
+    degree: "DEMO ONLY: Example degree",
+    fieldOfStudy: "DEMO ONLY: Field of study",
+    startDate: "DEMO ONLY: Start date",
+    endDate: "DEMO ONLY: Graduation date",
+    currentlyStudying: false,
+    description:
+      "DEMO ONLY: Fictional education description. Replace with your own details.",
+    achievements: ["DEMO ONLY: Example achievement"],
+    credentialUrl: null,
+  },
 ];

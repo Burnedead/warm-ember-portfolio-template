@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
@@ -8,15 +9,15 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 const navigation = [
   { label: "Home", href: "/#home" },
   { label: "About", href: "/about" },
-  { label: "Skills", href: "/#skills" },
+  { label: "Skills", href: "/skills" },
   { label: "Projects", href: "/projects" },
   { label: "Certificates", href: "/certificates" },
-  { label: "Experience", href: "/experience" },
-  { label: "Education", href: "/education" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="site-header">
@@ -28,7 +29,21 @@ export function Navbar() {
           <ul className="nav-links" data-open={menuOpen} id="main-navigation">
             {navigation.map(({ label, href }) => (
               <li key={href}>
-                <Link href={href} onClick={() => setMenuOpen(false)}>
+                <Link
+                  aria-current={
+                    href === "/#home"
+                      ? pathname === "/"
+                        ? "page"
+                        : undefined
+                      : href.startsWith("/#")
+                        ? undefined
+                        : pathname === href
+                          ? "page"
+                          : undefined
+                  }
+                  href={href}
+                  onClick={() => setMenuOpen(false)}
+                >
                   {label}
                 </Link>
               </li>

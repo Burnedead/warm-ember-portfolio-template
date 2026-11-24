@@ -68,7 +68,7 @@ export function ExperienceEducationSection({
     <section
       aria-labelledby="journey-title"
       className="journey-section"
-      id="experience"
+      id="journey"
       ref={sectionRef}
     >
       <div className="journey-container">
@@ -86,12 +86,12 @@ export function ExperienceEducationSection({
           <ExperienceTimeline
             experiences={experiences}
             scrollable={preview}
-            viewMoreHref={preview ? "/experience" : undefined}
+            viewMoreHref={preview ? "/about#experience" : undefined}
           />
           <EducationTimeline
             education={education}
             scrollable={preview}
-            viewMoreHref={preview ? "/education" : undefined}
+            viewMoreHref={preview ? "/about#education" : undefined}
           />
         </div>
       </div>

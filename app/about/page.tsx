@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AboutSection } from "@/components/sections/about";
+import { ExperienceEducationSection } from "@/components/sections/experience-education";
 import { PortfolioDetailPage } from "@/components/layout/portfolio-detail-page";
 
 const title = "About";
@@ -15,6 +16,7 @@ export default function AboutPage() {
   return (
     <PortfolioDetailPage title={title} description={description}>
       <AboutSection />
+      <ExperienceEducationSection preview />
     </PortfolioDetailPage>
   );
 }

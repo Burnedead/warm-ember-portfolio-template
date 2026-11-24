@@ -43,8 +43,8 @@ export function EducationTimeline({
               key={item.id}
             >
               <CardRouteLink
-                href="/education"
-                label={`View ${item.institution} education entry`}
+                href="/about#education"
+                label={`View ${item.institution} in the About page education section`}
               />
               {dateRange && <p className="journey-date">{dateRange}</p>}
               {qualification && (

@@ -39,8 +39,8 @@ export function ExperienceTimeline({
               key={item.id}
             >
               <CardRouteLink
-                href="/experience"
-                label={`View ${item.position} on the Experience page`}
+                href="/about#experience"
+                label={`View ${item.position} in the About page experience section`}
               />
               {dateRange && <p className="journey-date">{dateRange}</p>}
               <h4 className="journey-entry-title">{item.position}</h4>
@@ -97,6 +97,7 @@ export function ExperienceTimeline({
           ? "journey-panel journey-panel-scrollable"
           : "journey-panel"
       }
+      id="experience"
     >
       <header className="journey-panel-heading">
         <span aria-hidden="true" className="journey-panel-number">

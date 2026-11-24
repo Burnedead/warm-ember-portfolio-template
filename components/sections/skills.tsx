@@ -4,12 +4,12 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { skillsData } from "@/lib/data/skills";
+import { previewSkills, skillsData } from "@/lib/data/skills";
 import { LogoLoop } from "@/components/ui/logo-loop";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const skills = skillsData.categories.flatMap((category) => category.skills);
+const skills = previewSkills;
 
 export function SkillsSection() {
   const sectionRef = useRef<HTMLElement>(null);
